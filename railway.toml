@@ -1,8 +1,8 @@
 [build]
   builder = "NIXPACKS"
-[build.nixpacks]
-  install_cmd = "npm install --prefix server && npm install --prefix client"
-  build_cmd = "cd client && CI=false npm run build"
+  installCommand = "npm install --prefix server && npm install --prefix client"
+  buildCommand = "cd client && CI=false npm run build"
+
 [deploy]
   startCommand = "node server/core/index.js"
   restartPolicyType = "ON_FAILURE"
