@@ -1,0 +1,14 @@
+{
+  "name": "projex",
+  "version": "1.0.0",
+  "description": "ProjeX - Full-stack project management web app",
+  "scripts": {
+    "start": "node server/core/index.js",
+    "server": "node server/core/index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
