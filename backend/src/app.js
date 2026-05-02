@@ -39,6 +39,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+  console.log(`DB_HOST: ${process.env.DB_HOST}`);
 });
 
 process.on('uncaughtException', (err) => {
