@@ -1,9 +1,6 @@
 [build]
   builder = "NIXPACKS"
-  installCommand = "npm install"
-  buildCommand = "cd client && npm install && CI=false npm run build"
-[build.nixpacks]
-  env = ["NIXPACKS_NO_CLEAN_INSTALL=1"]
+  buildCommand = "npm install --prefix client && cd client && CI=false npm run build"
 
 [deploy]
   startCommand = "node server/core/index.js"
