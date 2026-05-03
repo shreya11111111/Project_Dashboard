@@ -25,40 +25,66 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <h1 className="auth-logo">ProjeX</h1>
-        <h2>Sign In</h2>
-        {error && <div className="error-msg">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              placeholder="Enter your email"
-            />
+    <div className="signin-page">
+      {/* Left panel */}
+      <div className="signin-left">
+        <div className="signin-left-content">
+          <div className="signin-brand">ProjeX</div>
+          <h2 className="signin-tagline">Ship projects.<br />Not excuses.</h2>
+          <p className="signin-sub">The all-in-one workspace for modern teams to plan, track, and deliver.</p>
+          <div className="signin-features">
+            <div className="signin-feature"><span className="signin-feature-dot dot-violet"></span>Real-time task tracking</div>
+            <div className="signin-feature"><span className="signin-feature-dot dot-cyan"></span>Role-based access control</div>
+            <div className="signin-feature"><span className="signin-feature-dot dot-pink"></span>Team collaboration</div>
           </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="Enter your password"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
-        <p className="auth-link">
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
+        </div>
+        <div className="signin-orbs">
+          <div className="orb orb-1"></div>
+          <div className="orb orb-2"></div>
+          <div className="orb orb-3"></div>
+        </div>
+      </div>
+
+      {/* Right panel */}
+      <div className="signin-right">
+        <div className="signin-form-wrap">
+          <div className="signin-eyebrow">Welcome back</div>
+          <h1 className="signin-title">Sign in to your account</h1>
+          <p className="signin-hint">Don't have an account? <Link to="/register">Create one free →</Link></p>
+
+          {error && <div className="error-msg">{error}</div>}
+
+          <form onSubmit={handleSubmit} className="signin-form">
+            <div className="signin-field">
+              <label>Email address</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="you@company.com"
+                autoComplete="email"
+              />
+            </div>
+            <div className="signin-field">
+              <label>Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="••••••••"
+                autoComplete="current-password"
+              />
+            </div>
+            <button type="submit" className="signin-btn" disabled={loading}>
+              {loading ? <span className="signin-spinner"></span> : null}
+              {loading ? 'Signing in...' : 'Continue →'}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
+
