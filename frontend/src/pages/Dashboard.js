@@ -21,18 +21,22 @@ export default function Dashboard() {
 
       <div className="stats-grid">
         <div className="stat-card">
+          <div className="stat-icon">◫</div>
           <div className="stat-number">{stats.totalProjects}</div>
           <div className="stat-label">Projects</div>
         </div>
         <div className="stat-card stat-todo">
+          <div className="stat-icon">◷</div>
           <div className="stat-number">{stats.tasksByStatus.todo}</div>
           <div className="stat-label">Todo</div>
         </div>
         <div className="stat-card stat-progress">
+          <div className="stat-icon">↻</div>
           <div className="stat-number">{stats.tasksByStatus.inProgress}</div>
           <div className="stat-label">In Progress</div>
         </div>
         <div className="stat-card stat-done">
+          <div className="stat-icon">✓</div>
           <div className="stat-number">{stats.tasksByStatus.done}</div>
           <div className="stat-label">Done</div>
         </div>

@@ -13,32 +13,29 @@ export default function Layout({ children }) {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar">
-        <div className="sidebar-header">
-          <h1 className="logo">ProjeX</h1>
-        </div>
-        <nav className="sidebar-nav">
-          <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} end>
-            <span className="nav-icon">📊</span> Dashboard
+      <header className="topbar">
+        <span className="topbar-logo">ProjeX</span>
+        <nav className="topbar-nav">
+          <NavLink to="/" className={({ isActive }) => `topbar-link ${isActive ? 'active' : ''}`} end>
+            ▦ Dashboard
           </NavLink>
-          <NavLink to="/projects" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-            <span className="nav-icon">📁</span> Projects
+          <NavLink to="/projects" className={({ isActive }) => `topbar-link ${isActive ? 'active' : ''}`}>
+            ◫ Projects
           </NavLink>
         </nav>
-        <div className="sidebar-footer">
-          <div className="user-info">
-            <div className="user-avatar">{user?.name?.charAt(0).toUpperCase()}</div>
-            <div className="user-details">
-              <span className="user-name">{user?.name}</span>
-              <span className="user-role">{user?.role}</span>
-            </div>
+        <div className="topbar-right">
+          <div style={{ textAlign: 'right' }}>
+            <div className="topbar-user-name">{user?.name}</div>
+            <div className="topbar-user-role">{user?.role}</div>
           </div>
-          <button className="logout-btn" onClick={handleLogout}>Logout</button>
+          <div className="topbar-avatar">{user?.name?.charAt(0).toUpperCase()}</div>
+          <button className="btn btn-secondary btn-sm" onClick={handleLogout}>Sign out</button>
         </div>
-      </aside>
+      </header>
       <main className="main-content">
         {children}
       </main>
     </div>
   );
 }
+
